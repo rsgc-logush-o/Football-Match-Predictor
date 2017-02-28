@@ -11,6 +11,7 @@
 		3FD018571E65FBD70085D62D /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3FD018561E65FBD70085D62D /* ViewController.swift */; };
 		3FD018591E65FBD80085D62D /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 3FD018581E65FBD80085D62D /* Assets.xcassets */; };
 		3FD0185C1E65FBD80085D62D /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 3FD0185A1E65FBD80085D62D /* Main.storyboard */; };
+		3FD018641E65FED10085D62D /* Grade_11_Computer_Science_ISP_Proposal_-_Exemplar.docx in Resources */ = {isa = PBXBuildFile; fileRef = 3FD018631E65FED10085D62D /* Grade_11_Computer_Science_ISP_Proposal_-_Exemplar.docx */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -20,6 +21,7 @@
 		3FD018581E65FBD80085D62D /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		3FD0185B1E65FBD80085D62D /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		3FD0185D1E65FBD80085D62D /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		3FD018631E65FED10085D62D /* Grade_11_Computer_Science_ISP_Proposal_-_Exemplar.docx */ = {isa = PBXFileReference; lastKnownFileType = file; name = "Grade_11_Computer_Science_ISP_Proposal_-_Exemplar.docx"; path = "../../Downloads/Grade_11_Computer_Science_ISP_Proposal_-_Exemplar.docx"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -36,6 +38,7 @@
 		3FD018481E65FBD50085D62D = {
 			isa = PBXGroup;
 			children = (
+				3FD018631E65FED10085D62D /* Grade_11_Computer_Science_ISP_Proposal_-_Exemplar.docx */,
 				3FD018531E65FBD70085D62D /* Football Match Predictor */,
 				3FD018521E65FBD70085D62D /* Products */,
 			);
@@ -120,6 +123,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				3FD018641E65FED10085D62D /* Grade_11_Computer_Science_ISP_Proposal_-_Exemplar.docx in Resources */,
 				3FD018591E65FBD80085D62D /* Assets.xcassets in Resources */,
 				3FD0185C1E65FBD80085D62D /* Main.storyboard in Resources */,
 			);
