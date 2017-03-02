@@ -36,6 +36,10 @@ struct team
     var pointsScored = 0
     var pointsAgainst = 0
     
+    var games : [match]
+    
+    
+    
     
 }
 
@@ -60,5 +64,19 @@ struct match
     var isHome = 0
     var result = 0
     
+    
+}
+
+func statCalculations(teamToCalculate : team) -> teamStats
+{
+    let avgPoints = teamToCalculate.pointsScored / teamToCalculate.gamesPlayed
+    let avgPointsAgainst = teamToCalculate.pointsAgainst / teamToCalculate.gamesPlayed
+    
+    
+    
+}
+
+func calculateStandardDeviation()
+{
     
 }
