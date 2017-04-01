@@ -10,11 +10,35 @@ import Cocoa
 
 class ViewController: NSViewController {
 
+    // MARK: Properties
+    
+    
+    
+    
+    // MARK: viewDidLoad
+    // Runs once
+    
+    
+    var lsu = Team(name : "LSU", wins : Float(8), losses : Float(4), gamesPlayed : Float(12), pointsScored : Float(340), pointsAgainst : Float(189), avgPointsScored : Float(340/12), avgPointsAgainst : Float(189/12))
+    
+    
+    
+    
+    
+    
+    
+    
+
+    
+    
+    
     override func viewDidLoad() {
         super.viewDidLoad()
 
         // Do any additional setup after loading the view.
     }
+    
+    // MARK: Other functions
 
     override var representedObject: Any? {
         didSet {
@@ -25,58 +49,85 @@ class ViewController: NSViewController {
 
 }
 
-struct team
+
+
+
+func statCalculations(teamToCalculate : Team) -> TeamStats
 {
-    var name = ""
-    var wins = 0
-    var losses = 0
-    var ties = 0
-    var gamesPlayed = 0
+    var bufferTeam = TeamStats()
     
-    var pointsScored = 0
-    var pointsAgainst = 0
     
-    var games : [match]
     
+    
+    bufferTeam.meanPointsScored = teamToCalculate.pointsScored / teamToCalculate.gamesPlayed
+    bufferTeam.meanPointsAgainst = teamToCalculate.pointsAgainst / teamToCalculate.gamesPlayed
+    
+    bufferTeam.pointsScoredStdev = calculateStandardDeviation(numbers: teamToCalculate.scoresFor, mean: bufferTeam.meanPointsScored)
+    bufferTeam.pointsAgainstStdev = calculateStandardDeviation(numbers: teamToCalculate.scoresAgainst, mean: bufferTeam.meanPointsAgainst)
+    
+    
+    
+    
+    return bufferTeam
+    
+}
+
+func calculateStandardDeviation(numbers : [Float], mean : Float) -> Float
+{
+    var sum : Float = 0.0
+    for number in numbers
+    {
+        sum += pow((number - mean), 2)
+        
+        
+    }
+    
+    return sqrt((1/Float(numbers.count))*sum)
+    
+    
+}
+
+
+
+func startMatch(homeTeam : Team, awayTeam : Team, isNeutral : Bool) -> Team
+{
+    var homeTeamScore : Float = 0
+    var awayTeamScore : Float = 0
+    
+    homeTeamScore = ((homeTeam.avgPointsScored - awayTeam.avgDefenseAgainstAvgPoints) + (awayTeam.avgPointsAgainst + homeTeam.avgPointsAgainstAvgDefense)) / 2
+    
+    awayTeamScore = ((awayTeam.avgPointsScored - homeTeam.avgDefenseAgainstAvgPoints) + (homeTeam.avgPointsAgainst + awayTeam.avgPointsAgainstAvgDefense)) / 2
     
     
     
 }
 
-struct teamStats
+func findAvgPointsAgainstAvgDefense(teamToCalculate: Team) -> Float
 {
-    var meanPointsScored = 0
-    var meanPointsAgainst = 0
-    var medianPointsScored = 0
-    var medianPointsAgainst = 0
+    var totalMargin : Float = 0
     
-    var pointsScoredStdev = 0
-    var pointsAgainstStdev = 0
+    for i in teamToCalculate.games
+    {
+        totalMargin += (teamToCalculate.avgPointsScored - i.opposingTeam.avgPointsAgainst)
+    }
     
+    return totalMargin / teamToCalculate.gamesPlayed
     
 }
 
-struct match
+func findAvgDefenseAgainstAvgPointsAgainst(teamToCalculate : Team) -> Float
 {
-    var yourPoints = 0
-    var theirPoints = 0
+    var totalMargin : Float = 0
     
-    var isHome = 0
-    var result = 0
+    for i in teamToCalculate.games
+    {
+        totalMargin += (i.opposingTeam.avgPointsScored - teamToCalculate.avgPointsAgainst)
+    }
     
-    
+    return totalMargin / teamToCalculate.gamesPlayed
 }
 
-func statCalculations(teamToCalculate : team) -> teamStats
-{
-    let avgPoints = teamToCalculate.pointsScored / teamToCalculate.gamesPlayed
-    let avgPointsAgainst = teamToCalculate.pointsAgainst / teamToCalculate.gamesPlayed
-    
-    
-    
-}
 
-func calculateStandardDeviation()
-{
-    
-}
+
+
+

@@ -7,6 +7,9 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		3F5D95951E8ECD45008B96EB /* TeamStats.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F5D95941E8ECD45008B96EB /* TeamStats.swift */; };
+		3F5D95971E8ECF82008B96EB /* Team.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F5D95961E8ECF82008B96EB /* Team.swift */; };
+		3F5D95991E8ECFD1008B96EB /* Match.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F5D95981E8ECFD1008B96EB /* Match.swift */; };
 		3FD018551E65FBD70085D62D /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3FD018541E65FBD70085D62D /* AppDelegate.swift */; };
 		3FD018571E65FBD70085D62D /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3FD018561E65FBD70085D62D /* ViewController.swift */; };
 		3FD018591E65FBD80085D62D /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 3FD018581E65FBD80085D62D /* Assets.xcassets */; };
@@ -14,6 +17,9 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		3F5D95941E8ECD45008B96EB /* TeamStats.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TeamStats.swift; sourceTree = "<group>"; };
+		3F5D95961E8ECF82008B96EB /* Team.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Team.swift; sourceTree = "<group>"; };
+		3F5D95981E8ECFD1008B96EB /* Match.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Match.swift; sourceTree = "<group>"; };
 		3FD018511E65FBD70085D62D /* Football Match Predictor.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Football Match Predictor.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		3FD018541E65FBD70085D62D /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		3FD018561E65FBD70085D62D /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -59,6 +65,9 @@
 				3FD018581E65FBD80085D62D /* Assets.xcassets */,
 				3FD0185A1E65FBD80085D62D /* Main.storyboard */,
 				3FD0185D1E65FBD80085D62D /* Info.plist */,
+				3F5D95941E8ECD45008B96EB /* TeamStats.swift */,
+				3F5D95961E8ECF82008B96EB /* Team.swift */,
+				3F5D95981E8ECFD1008B96EB /* Match.swift */,
 			);
 			path = "Football Match Predictor";
 			sourceTree = "<group>";
@@ -134,7 +143,10 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				3F5D95971E8ECF82008B96EB /* Team.swift in Sources */,
+				3F5D95951E8ECD45008B96EB /* TeamStats.swift in Sources */,
 				3FD018571E65FBD70085D62D /* ViewController.swift in Sources */,
+				3F5D95991E8ECFD1008B96EB /* Match.swift in Sources */,
 				3FD018551E65FBD70085D62D /* AppDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -288,6 +300,7 @@
 				3FD018621E65FBD80085D62D /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
