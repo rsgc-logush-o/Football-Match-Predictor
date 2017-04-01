@@ -13,13 +13,4 @@ struct Match
     
     var yourScore : Float
     var opposingScore : Float
-    
-    var winner = ""
-    
-    var isNeutral = false
-    
-    
-    
-    
-    
 }

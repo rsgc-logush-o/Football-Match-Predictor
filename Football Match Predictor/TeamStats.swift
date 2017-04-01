@@ -9,15 +9,10 @@
 import Foundation
 struct TeamStats
 {
-    var meanPointsScored : Float = 0
-    var meanPointsAgainst : Float = 0
+    var avgPointsScored : Float = 0
+    var avgPointsAgainst : Float = 0
     
-    
-    var pointsScoredStdev : Float = 0
-    var pointsAgainstStdev : Float = 0
-    
-        
-    
-    
+    var avgPointsAgainstAvgDefense : Float = 0
+    var avgDefenseAgainstAvgPoints : Float = 0
     
 }

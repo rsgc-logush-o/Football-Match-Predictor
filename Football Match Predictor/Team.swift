@@ -18,14 +18,8 @@ struct Team
     var pointsScored : Float = 0
     var pointsAgainst : Float = 0
     
-    var avgPointsScored : Float = 0
-    var avgPointsAgainst : Float = 0
-    
     var games : [Match] = []
-    var scoresFor : [Float] = []
-    var scoresAgainst : [Float] = []
     
-    var avgPointsAgainstAvgDefense : Float = 0
-    var avgDefenseAgainstAvgPoints : Float = 0
-
+    var stats : TeamStats
+    
 }
