@@ -17,6 +17,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		3F5CF7E51E907BDE003FE7B1 /* Test.playground */ = {isa = PBXFileReference; lastKnownFileType = file.playground; path = Test.playground; sourceTree = "<group>"; };
 		3F5D95941E8ECD45008B96EB /* TeamStats.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TeamStats.swift; sourceTree = "<group>"; };
 		3F5D95961E8ECF82008B96EB /* Team.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Team.swift; sourceTree = "<group>"; };
 		3F5D95981E8ECFD1008B96EB /* Match.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Match.swift; sourceTree = "<group>"; };
@@ -68,6 +69,7 @@
 				3F5D95941E8ECD45008B96EB /* TeamStats.swift */,
 				3F5D95961E8ECF82008B96EB /* Team.swift */,
 				3F5D95981E8ECFD1008B96EB /* Match.swift */,
+				3F5CF7E51E907BDE003FE7B1 /* Test.playground */,
 			);
 			path = "Football Match Predictor";
 			sourceTree = "<group>";
