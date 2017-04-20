@@ -23,6 +23,7 @@
 		3F5D95961E8ECF82008B96EB /* Team.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Team.swift; sourceTree = "<group>"; };
 		3F5D95981E8ECFD1008B96EB /* Match.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Match.swift; sourceTree = "<group>"; };
 		3F6EA9E51E9EA2B200EC5FCA /* Independent_Study_Project_-_Checkpoint_1.docx */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Independent_Study_Project_-_Checkpoint_1.docx"; sourceTree = "<group>"; };
+		3FB3FD171EA644AB007FD211 /* JSON.playground */ = {isa = PBXFileReference; lastKnownFileType = file.playground; path = JSON.playground; sourceTree = "<group>"; };
 		3FD018511E65FBD70085D62D /* Football Match Predictor.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Football Match Predictor.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		3FD018541E65FBD70085D62D /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		3FD018561E65FBD70085D62D /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -73,6 +74,7 @@
 				3F5D95961E8ECF82008B96EB /* Team.swift */,
 				3F5D95981E8ECFD1008B96EB /* Match.swift */,
 				3F5CF7E51E907BDE003FE7B1 /* Test.playground */,
+				3FB3FD171EA644AB007FD211 /* JSON.playground */,
 			);
 			path = "Football Match Predictor";
 			sourceTree = "<group>";
