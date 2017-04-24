@@ -72,6 +72,10 @@ func parseTeamJSON(_ theData : Data)
                     return
                 }
                 
+                var bufferTeam = Team(name: team, wins: wins, losses: losses, gamesPlayed: gamesPlayed, pointsScored: pointsFor, pointsAgainst: pointsAgainst, stats: TeamStats(avgPointsScored: pointsFor/gamesPlayed, avgPointsAgainst: pointsAgainst/gamesPlayed, avgPointsAgainstAvgDefense: 0, avgDefenseAgainstAvgPoints: 0))
+                
+                teams[teamID] = bufferTeam
+                
             }
         }
     }catch let error as NSError {
@@ -150,6 +154,10 @@ func parseScheduleJSON(_ theData : Data)
                         return
                 }
                 
+                var matchBuffer = Match(homeTeamID: homeTeamID, awayTeamID: awayTeamID, homeTeamScore: homeTeamScore, awayTeamScore: awayTeamScore, gameID: gameID)
+                
+                allMatches.append(matchBuffer)
+                
             }
         }
     }catch let error as NSError {
@@ -159,3 +167,62 @@ func parseScheduleJSON(_ theData : Data)
     }
 
 }
+
+
+struct Match
+{
+    //Stores the opposing team in the match
+    var homeTeamID : Int
+    
+    //Stores the teams' score
+    var awayTeamID : Int
+    //Stores the opposing teams score for the match
+    var homeTeamScore : Float
+    
+    var awayTeamScore : Float
+    
+    var gameID : Int
+}
+
+struct TeamStats
+{
+    //The average points scored and average points allowed
+    var avgPointsScored : Float = 0
+    var avgPointsAgainst : Float = 0
+    
+    //These store the average overperformance/underperformance by the teams offense/defense
+    var avgPointsAgainstAvgDefense : Float = 0
+    var avgDefenseAgainstAvgPoints : Float = 0
+    
+}
+
+
+struct Team
+{
+    //Stores the team name
+    var name = ""
+    //Stores the wins losses and games played
+    var wins : Float = 0
+    var losses : Float = 0
+    var gamesPlayed : Float = 0
+    
+    //Stores the total points scored by the team, and points scored against the team
+    var pointsScored : Float = 0
+    var pointsAgainst : Float = 0
+    
+    //This array stores all of the matches played by this team
+    
+    //This stores the teams statistics in another structure
+    var stats : TeamStats
+    
+}
+
+
+
+var allMatches : [Match] = []
+
+var teams = [Int : Team]()
+
+
+
+

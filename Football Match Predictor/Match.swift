@@ -11,10 +11,14 @@ import Foundation
 struct Match
 {
     //Stores the opposing team in the match
-    var opposingTeam : Team
+    var homeTeamID : Int
     
     //Stores the teams' score
-    var yourScore : Float
+    var awayTeamID : Int
     //Stores the opposing teams score for the match
-    var opposingScore : Float
+    var homeTeamScore : Float
+    
+    var awayTeamScore : Float
+    
+    var gameID : Int
 }
