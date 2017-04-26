@@ -40,18 +40,6 @@ struct TeamStats
     
 }
 
-var lsu : Team
 
-lsu = Team()
-
-lsu.name = "LSU"
-lsu.wins = 8
-lsu.losses = 4
-lsu.gamesPlayed = 12
-lsu.pointsScored = 340
-lsu.pointsAgainst = 189
-
-
-var louisville : Team
 
 
