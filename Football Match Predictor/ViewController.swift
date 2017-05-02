@@ -7,6 +7,7 @@
 //
 
 import Cocoa
+import SpriteKit
 
 class ViewController: NSViewController {
 
@@ -24,6 +25,9 @@ class ViewController: NSViewController {
     // Runs once
     override func viewDidLoad() {
         super.viewDidLoad()
+        let scene = TitlePage(size: CGSize(width: 800, height: 600))
+        
+        let skView = SKView(frame: NSRect())
 
         // Do any additional setup after loading the view.
         

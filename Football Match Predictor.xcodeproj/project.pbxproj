@@ -15,6 +15,7 @@
 		3FD018571E65FBD70085D62D /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3FD018561E65FBD70085D62D /* ViewController.swift */; };
 		3FD018591E65FBD80085D62D /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 3FD018581E65FBD80085D62D /* Assets.xcassets */; };
 		3FD0185C1E65FBD80085D62D /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 3FD0185A1E65FBD80085D62D /* Main.storyboard */; };
+		3FEBB18D1EB8FE770096145E /* NavigationPage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3FEBB18C1EB8FE770096145E /* NavigationPage.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -31,6 +32,7 @@
 		3FD0185B1E65FBD80085D62D /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		3FD0185D1E65FBD80085D62D /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		3FD018651E6608330085D62D /* Grade_11_Computer_Science_ISP_Proposal_-_Exemplar.docx */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Grade_11_Computer_Science_ISP_Proposal_-_Exemplar.docx"; sourceTree = "<group>"; };
+		3FEBB18C1EB8FE770096145E /* NavigationPage.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NavigationPage.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -75,6 +77,7 @@
 				3F5D95981E8ECFD1008B96EB /* Match.swift */,
 				3F5CF7E51E907BDE003FE7B1 /* Test.playground */,
 				3FB3FD171EA644AB007FD211 /* JSON.playground */,
+				3FEBB18C1EB8FE770096145E /* NavigationPage.swift */,
 			);
 			path = "Football Match Predictor";
 			sourceTree = "<group>";
@@ -153,6 +156,7 @@
 			files = (
 				3F5D95971E8ECF82008B96EB /* Team.swift in Sources */,
 				3F5D95951E8ECD45008B96EB /* TeamStats.swift in Sources */,
+				3FEBB18D1EB8FE770096145E /* NavigationPage.swift in Sources */,
 				3FD018571E65FBD70085D62D /* ViewController.swift in Sources */,
 				3F5D95991E8ECFD1008B96EB /* Match.swift in Sources */,
 				3FD018551E65FBD70085D62D /* AppDelegate.swift in Sources */,
