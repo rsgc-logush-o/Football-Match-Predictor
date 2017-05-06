@@ -19,19 +19,24 @@ class ViewController: NSViewController {
     
     //This stores all of the teams, it is a dictionary so the team's ID will reveal the team
     var teams = [Int : Team]()
+    
+    
 
     
     // MARK: viewDidLoad
     // Runs once
     override func viewDidLoad() {
         super.viewDidLoad()
-        let scene = TitlePage(size: CGSize(width: 800, height: 600))
+      //  let scene = TitlePage(size: CGSize(width: 800, height: 600))
         
-        let skView = SKView(frame: NSRect())
+     //   let skView = SKView(frame: NSRect())
 
         // Do any additional setup after loading the view.
         
         getTeamJSON()
+        getScheduleJSON()
+        print("meme")
+        sortMatches()
     }
     
     // MARK: Other functions
@@ -130,7 +135,7 @@ class ViewController: NSViewController {
                     }
                     
                     //This buffer team stores all of the team data
-                    let bufferTeam = Team(name: team, wins: wins, losses: losses, gamesPlayed: gamesPlayed, pointsScored: pointsFor, pointsAgainst: pointsAgainst, stats: TeamStats(avgPointsScored: pointsFor/gamesPlayed, avgPointsAgainst: pointsAgainst/gamesPlayed, avgPointsAgainstAvgDefense: 0, avgDefenseAgainstAvgPoints: 0))
+                    let bufferTeam = Team(name: team, wins: wins, losses: losses, gamesPlayed: gamesPlayed, pointsScored: pointsFor, pointsAgainst: pointsAgainst, teamID: teamID, stats: TeamStats(avgPointsScored: pointsFor/gamesPlayed, avgPointsAgainst: pointsAgainst/gamesPlayed, avgPointsAgainstAvgDefense: 0, avgDefenseAgainstAvgPoints: 0))
                     
                     //creates a location in the dictionary for the team using the teamID
                     teams[teamID] = bufferTeam
@@ -226,8 +231,9 @@ class ViewController: NSViewController {
                         let awayTeam : String = thisGame["AwayTeam"] as? String,
                         let homeTeamID : Int = thisGame["HomeTeamID"] as? Int,
                         let awayTeamID : Int = thisGame["AwayTeamID"] as? Int,
-                        let homeTeamScore : Float = thisGame["HomeTeamScore"] as? Float,
-                        let awayTeamScore : Float = thisGame["AwayTeamscore"] as? Float
+                        let homeTeamScore : Int? = thisGame["HomeTeamScore"] as? Int,
+                        let awayTeamScore : Int? = thisGame["AwayTeamScore"] as? Int,
+                        let status : String = thisGame["Status"] as? String
                         
                         
                         
@@ -236,11 +242,23 @@ class ViewController: NSViewController {
                             return
                     }
                     
+                    print(gameID)
+                    print(homeTeam)
+                    print(awayTeam)
+                    print(homeTeamID)
+                    print(awayTeamID)
+                    print(homeTeamScore)
+                    print(awayTeamScore)
                     //Temporarily hold the match data together in this buffer
-                    let matchBuffer = Match(homeTeamID: homeTeamID, awayTeamID: awayTeamID, homeTeamScore: homeTeamScore, awayTeamScore: awayTeamScore, gameID: gameID)
+                    if status == "Final"
+                    {
+                    
+                    let matchBuffer = Match(homeTeamID: homeTeamID, awayTeamID: awayTeamID, homeTeamScore: Float(homeTeamScore!), awayTeamScore: Float(awayTeamScore!), gameID: gameID)
+                         allMatches.append(matchBuffer)
+                    }
                     
                     //This adds the buffer to all of the matches
-                    allMatches.append(matchBuffer)
+                   
                     
                 }
             }
@@ -250,6 +268,31 @@ class ViewController: NSViewController {
             
         }
         
+    }
+    
+    func sortMatches()
+    {
+        print("meme")
+        for (i, k) in teams
+        {
+            var totalDefenseMargin : Float = 0
+            var totalOffenseMargin : Float = 0
+            
+            print(i)
+            print(k)
+            for j in allMatches
+            {
+                if j.homeTeamID == k.teamID
+                {
+                  //  totalOffenseMargin += (j.homeTeamScore - teams[j.awayTeamID].stats.avgPointsAgainst)
+                   // totalDefenseMargin += (j.awayTeamScore - teams[j.awayTeamID].stats.avgPointsScored)
+                }else if j.awayTeamID == k.teamID
+                {
+                    //totalOffenseMargin += (j.awayTeamScore - teams[j.homeTeamID].stats.avgPointsAgainst)
+                    //totalDefenseMargin += (j.homeTeamScore - teams[j.homeTeamID].stats.avgPointsScored)
+                }
+            }
+        }
     }
 
 

@@ -23,7 +23,7 @@ struct Team
     var pointsAgainst : Float = 0
     
     //This array stores all of the matches played by this team
-   
+    var teamID : Int = 0
     
     //This stores the teams statistics in another structure
     var stats : TeamStats
