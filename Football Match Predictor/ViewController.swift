@@ -276,9 +276,10 @@ class ViewController: NSViewController {
     
     func sortMatches()
     {
-        print("meme")
+        //Going through all of the teams to add the data to the teams
         for (i, k) in teams
         {
+            //These hold the margins for offense and defense
             var totalDefenseMargin : Float = 0
             var totalOffenseMargin : Float = 0
             
@@ -286,8 +287,10 @@ class ViewController: NSViewController {
             
             if let teamToCalculate = teams[i]
             {
+                //Going through the matches to find those teams matches
                 for j in allMatches
                 {
+                    //If the match includes the home team add the numbers to calculate it
                     if j.homeTeamID == teamToCalculate.teamID
                     {
                         totalOffenseMargin += (j.homeTeamScore - (teams[j.awayTeamID]?.stats.avgPointsAgainst)!)
@@ -300,6 +303,7 @@ class ViewController: NSViewController {
                 }
             }
             
+            //This adds the final stats to the teams
             teams[i]?.stats.avgPointsAgainstAvgDefense = totalOffenseMargin/(teams[i]?.gamesPlayed)!
             teams[i]?.stats.avgDefenseAgainstAvgPoints = totalDefenseMargin/(teams[i]?.gamesPlayed)!
             
@@ -308,14 +312,21 @@ class ViewController: NSViewController {
         }
     }
     
+    //This function predicts the match
     func predictMatch(team1 : Team, team2 : Team)
     {
+        //These variables hold the scores of the teams
         var team1Score : Float = 0
         var team2Score : Float = 0
         
+        //These calculate the teams score
         team1Score = ((team1.stats.avgPointsScored - team2.stats.avgDefenseAgainstAvgPoints) + (team2.stats.avgPointsAgainst + team1.stats.avgPointsAgainstAvgDefense)) / 2
         
         team2Score = ((team2.stats.avgPointsScored - team1.stats.avgDefenseAgainstAvgPoints) + (team1.stats.avgPointsAgainst + team2.stats.avgPointsAgainstAvgDefense)) / 2
+        
+        //This prints out the teams scores
+        print("\(team1.name)'s Score is \(Int(team1Score))")
+        print("\(team2.name)'s Score is \(Int(team2Score))")
 
     }
 
