@@ -36,7 +36,7 @@ class ViewController: NSViewController {
         getTeamJSON()
         getScheduleJSON()
         print("meme")
-        sortMatches()
+       
     }
     
     // MARK: Other functions
@@ -231,8 +231,6 @@ class ViewController: NSViewController {
                         let awayTeam : String = thisGame["AwayTeam"] as? String,
                         let homeTeamID : Int = thisGame["HomeTeamID"] as? Int,
                         let awayTeamID : Int = thisGame["AwayTeamID"] as? Int,
-                        let homeTeamScore : Int? = thisGame["HomeTeamScore"] as? Int,
-                        let awayTeamScore : Int? = thisGame["AwayTeamScore"] as? Int,
                         let status : String = thisGame["Status"] as? String
                         
                         
@@ -241,6 +239,12 @@ class ViewController: NSViewController {
                             print("Can't get data")
                             return
                     }
+                    if status == "Final"
+                    {
+                        let homeTeamScore : Int = (thisGame["HomeTeamScore"] as? Int)!
+                        let awayTeamScore : Int = (thisGame["AwayTeamScore"] as? Int)!
+                    
+
                     
                     print(gameID)
                     print(homeTeam)
@@ -250,10 +254,9 @@ class ViewController: NSViewController {
                     print(homeTeamScore)
                     print(awayTeamScore)
                     //Temporarily hold the match data together in this buffer
-                    if status == "Final"
-                    {
+                  
                     
-                    let matchBuffer = Match(homeTeamID: homeTeamID, awayTeamID: awayTeamID, homeTeamScore: Float(homeTeamScore!), awayTeamScore: Float(awayTeamScore!), gameID: gameID)
+                    let matchBuffer = Match(homeTeamID: homeTeamID, awayTeamID: awayTeamID, homeTeamScore: Float(homeTeamScore), awayTeamScore: Float(awayTeamScore), gameID: gameID)
                          allMatches.append(matchBuffer)
                     }
                     
@@ -267,6 +270,7 @@ class ViewController: NSViewController {
             print ("Failed to load: \(error.localizedDescription)")
             
         }
+         sortMatches()
         
     }
     
@@ -278,21 +282,41 @@ class ViewController: NSViewController {
             var totalDefenseMargin : Float = 0
             var totalOffenseMargin : Float = 0
             
-            print(i)
-            print(k)
-            for j in allMatches
+           
+            
+            if let teamToCalculate = teams[i]
             {
-                if j.homeTeamID == k.teamID
+                for j in allMatches
                 {
-                  //  totalOffenseMargin += (j.homeTeamScore - teams[j.awayTeamID].stats.avgPointsAgainst)
-                   // totalDefenseMargin += (j.awayTeamScore - teams[j.awayTeamID].stats.avgPointsScored)
-                }else if j.awayTeamID == k.teamID
-                {
-                    //totalOffenseMargin += (j.awayTeamScore - teams[j.homeTeamID].stats.avgPointsAgainst)
-                    //totalDefenseMargin += (j.homeTeamScore - teams[j.homeTeamID].stats.avgPointsScored)
+                    if j.homeTeamID == teamToCalculate.teamID
+                    {
+                        totalOffenseMargin += (j.homeTeamScore - (teams[j.awayTeamID]?.stats.avgPointsAgainst)!)
+                        totalDefenseMargin += (j.awayTeamScore - (teams[j.awayTeamID]?.stats.avgPointsScored)!)
+                    }else if j.awayTeamID == teamToCalculate.teamID
+                    {
+                        totalOffenseMargin += (j.awayTeamScore - (teams[j.homeTeamID]?.stats.avgPointsAgainst)!)
+                        totalDefenseMargin += (j.homeTeamScore - (teams[j.homeTeamID]?.stats.avgPointsScored)!)
+                    }
                 }
             }
+            
+            teams[i]?.stats.avgPointsAgainstAvgDefense = totalOffenseMargin/(teams[i]?.gamesPlayed)!
+            teams[i]?.stats.avgDefenseAgainstAvgPoints = totalDefenseMargin/(teams[i]?.gamesPlayed)!
+            
+            print(teams[i]?.stats.avgPointsAgainstAvgDefense)
+            
         }
+    }
+    
+    func predictMatch(team1 : Team, team2 : Team)
+    {
+        var team1Score : Float = 0
+        var team2Score : Float = 0
+        
+        team1Score = ((team1.stats.avgPointsScored - team2.stats.avgDefenseAgainstAvgPoints) + (team2.stats.avgPointsAgainst + team1.stats.avgPointsAgainstAvgDefense)) / 2
+        
+        team2Score = ((team2.stats.avgPointsScored - team1.stats.avgDefenseAgainstAvgPoints) + (team1.stats.avgPointsAgainst + team2.stats.avgPointsAgainstAvgDefense)) / 2
+
     }
 
 
