@@ -35,7 +35,7 @@ class ViewController: NSViewController {
         
         getTeamJSON()
         getScheduleJSON()
-        print("meme")
+        
        
     }
     
@@ -271,6 +271,8 @@ class ViewController: NSViewController {
             
         }
          sortMatches()
+        predictMatch(team1: teams[269]!, team2: teams[275]!)
+
         
     }
     
@@ -307,7 +309,7 @@ class ViewController: NSViewController {
             teams[i]?.stats.avgPointsAgainstAvgDefense = totalOffenseMargin/(teams[i]?.gamesPlayed)!
             teams[i]?.stats.avgDefenseAgainstAvgPoints = totalDefenseMargin/(teams[i]?.gamesPlayed)!
             
-            print(teams[i]?.stats.avgPointsAgainstAvgDefense)
+           // print(teams[i]?.stats.avgPointsAgainstAvgDefense)
             
         }
     }
